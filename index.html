@@ -23,11 +23,11 @@
                         You send exactly
                     </div>
                     <div class="input-box">
-                        <input type="number" id="quantity" placeholder="Enter a number">
+                        <input type="number" id="amount" placeholder="Enter a number">
                         <select id="country">
-                            <option value="USA">USA</option>
-                            <option value="UK">UK</option>
-                            <option value="Canada">Canada</option>
+                            <option value="INR">INR</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
                             <!-- Add more options as needed -->
                         </select>
                     </div>
@@ -36,8 +36,8 @@
                             <span class="listitemlogo">
                                 
                             </span>
-                            <p class="listitemamount">
-                                200
+                            <p class="listitemamount" id="bankfees">
+                                0 INR
                             </p>
                             <p class="listitemlabel">
                                 Bank Transfer fees
@@ -45,8 +45,8 @@
                         </li>
                         <li class="listitem">
                             <span class="listitemlogo"></span>
-                            <p class="listitemamount">
-                                300
+                            <p class="listitemamount" id="ourfee">
+                                0 INR
                             </p>
                             <p class="listitemlabel">Our Fee</p>
                         </li>
@@ -54,7 +54,7 @@
                             <span class="listitemlogo">
                                 <img src="icons/minus-solid.svg"></img>
                             </span>
-                            <p class="listitemamount"></p>
+                            <p class="listitemamount" id="totalfee">0 INR</p>
                             <p class="listitemlabel">Total fees</p>
                         </li>
                         <br>
@@ -62,14 +62,14 @@
                             <span class="listitemlogo">
                                 <img src="icons/equals-solid.svg"></img>
                             </span>
-                            <p class="listitemamount"></p>
-                            <p class="listitemlabel">Total amount we’ll convert</p>
+                            <p class="listitemamount" id="convertamount">0 INR</p>
+                            <p class="listitemlabel">Total amount we'll convert</p>
                         </li>
                         <li class="listitem">
                             <span class="listitemlogo">
                                 <img src="icons/divide-solid.svg"></img>
                             </span>
-                            <p class="listitemamount"></p>
+                            <p class="listitemamount" id="rate">--</p>
                             <p class="listitemlabel underline">Guaranteed Rate(24 h)</p>
                         </li>
 
@@ -79,11 +79,8 @@
                     </div>
                     <div class="input-box">
                         <input type="number" id="quantity" placeholder="Enter a number">
-                        <select id="country">
-                            <option value="USA">USA</option>
-                            <option value="UK">UK</option>
-                            <option value="Canada">Canada</option>
-                            <!-- Add more options as needed -->
+                        <select id="rcountry">
+                            <option value="USA">USD</option>
                         </select>
                     </div>
                     <div class="arrivetext">Should arrive <b>by Wednesday</b></div>
