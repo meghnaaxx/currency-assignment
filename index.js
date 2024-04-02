@@ -26,7 +26,7 @@ function update() {
         rate = 1.073;
     }
     document.getElementById('rate').innerHTML = rate;
-    document.getElementById('quantity').value = value/rate;
+    document.getElementById('quantity').value = (value/rate).toFixed(3);
     
     console.log(amount.value + currency.value);
 }
