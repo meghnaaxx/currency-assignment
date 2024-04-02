@@ -196,6 +196,6 @@ br{
       display: none;
     }
     .rightrow{
-        width: calc(75% - 0.5px);
+        width: calc(80% - 0.5px);
     }
   }
