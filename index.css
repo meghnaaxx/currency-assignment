@@ -103,12 +103,8 @@ body {
   border: 2px solid black;
 }
 
-.input-box:active{
-  border: 3px solid black;
-}
-
 select {
-    width: 15%;
+    width: 25%;
     border: 0;
     outline: none; /* Disable outline when focused */
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* Disable tap highlight */
@@ -116,7 +112,7 @@ select {
   }
 
 input[type="number"] {
-    width: 85%;
+    width: 75%;
     border: 0;
     appearance: textfield; /* Remove up-down arrows */
     -moz-appearance: textfield; /* Remove up-down arrows in Firefox */
