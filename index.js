@@ -47,8 +47,8 @@ function update_rev() {
     var r_amount = recieved_quantity.value;
 
     document.getElementById('convertamount').innerHTML = (r_amount*rate) + ' ' + currency.value;
-    document.getElementById('amount').value = (r_amount*rate)*(100/98);
-    var ourfee = 0.02*(r_amount*rate)*(100/98);
+    document.getElementById('amount').value = ((r_amount*rate)*(100/98)).toFixed(3);
+    var ourfee = (0.02*(r_amount*rate)*(100/98)).toFixed(3);
     document.getElementById('bankfees').innerHTML = '0 ' + currency.value;
     document.getElementById('ourfee').innerHTML = ourfee + ' ' + currency.value;
     document.getElementById('totalfee').innerHTML = ourfee + ' ' + currency.value;
