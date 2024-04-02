@@ -95,7 +95,7 @@ body {
     display: flex;
     border: 1px solid black;
     border-radius: 15px;
-    padding: 3%;
+    padding: 2%;
     margin-top: 1%;
     transition: background-color 2s ease;
 }
