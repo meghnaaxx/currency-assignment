@@ -1,0 +1,205 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+  }
+  .section {
+    flex: 1;
+    min-height: 200px;
+    background-color: #9fe870;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .large{
+    line-height: 41px;
+    letter-spacing: -0.03em;
+    font-size: clamp(1.875rem,calc((30/16 * 1rem) + (1vw - .2rem) * (100 * ((37/16) - (30/16))/(26.875 - 20))),2.3125rem);
+    color: #163300;
+    font-family: Inter, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+
+  }
+  .small{
+    line-height: 26px;
+    letter-spacing: .005em;
+    font-size: clamp(1rem, calc((1rem) + (1vw - .2rem) * (100 * ((18 / 16) - 1) / (26.875 - 20))), 1.125rem);;
+    font-family: Inter, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    color: rgb(22, 51, 0);
+    margin-top: clamp(2rem, 2rem + (1vw - 0.225rem) * 0.51282051, 2.5rem);
+  }
+  .link{
+    color: #9fe870;
+    background-color: rgb(22, 51, 0);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.176px;
+    line-height: 24px;
+    display: inline-flex;
+    padding: 16px;
+    margin-top: clamp(2rem, 2rem + (1vw - 0.225rem) * 0.51282051, 2.5rem);
+    border-radius: 38px;
+    text-decoration: none;
+
+  }
+  .leftrow{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    padding-left: 118px;
+  }
+
+  .right{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    padding: 0 12px;
+    align-items: center;
+  }
+
+  .rightrow{
+    background-color: white;
+    width: calc(60% - 0.5px);
+    height: 75%;
+    color: black;
+    border-radius: 5%;
+    padding: 5%;
+  }
+  .colhead{
+    color: rgb(69, 71, 69);
+    font-family: Inter, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.108px;
+    line-height: 20px;
+  }
+  .arrivetext{
+    color: rgb(69, 71, 69);
+    font-family: Inter, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.108px;
+    line-height: 20px;
+    margin-top: 20px;
+  }
+  .input-box {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 3%;
+    margin-top: 1%;
+    transition: background-color 2s ease;
+}
+.input-box:hover{
+  border: 2px solid black;
+}
+
+.input-box:active{
+  border: 3px solid black;
+}
+
+select {
+    width: 15%;
+    border: 0;
+    outline: none; /* Disable outline when focused */
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* Disable tap highlight */
+    font-size: large;
+  }
+
+input[type="number"] {
+    width: 85%;
+    border: 0;
+    appearance: textfield; /* Remove up-down arrows */
+    -moz-appearance: textfield; /* Remove up-down arrows in Firefox */
+    outline: none; /* Disable outline when focused */
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* Disable tap highlight */
+    font-size: x-large;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Remove up-down arrows in Chrome/Safari */
+    appearance: none;
+    margin: 0; /* Remove the margin */
+}
+
+.list{
+  margin: 0;
+  padding: 24px 0;
+}
+ul{
+  list-style-type: none;
+  font-family: Inter, Helvetica, Arial, sans-serif;
+}
+.listitem{
+  display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+}
+.listitemlogo{
+  height: 17px;
+  width: 17px;
+  background-color: lightgray;
+  border-radius: 50%;
+  border: 0;
+  display: flex;
+  justify-content: center;
+    align-items: center;
+}
+.listitemlogo img{
+  height:11px;
+  
+}
+.listitemamount{
+  flex-grow: 1;
+  margin: 0px 10px;
+  color: rgb(14, 15, 12);
+  font-size: 14px;
+  font-family: Inter, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.108px;
+line-height: 26px;
+}
+br{
+  display: block;
+  content: "";
+  margin: 0.25em 0;
+  border-top: 1px solid black;
+}
+.underline{
+  text-decoration: underline;
+}
+
+.endbutton{
+  background-color: #9fe870;
+  color: rgb(69, 71, 69);
+    font-family: Inter, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.108px;
+    line-height: 40px;
+    width: 100%;
+    border: 0;
+    border-radius: 20px;
+    margin: 10px 0;
+
+
+}
+
+  @media only screen and (max-width: 768px) {
+    .section:nth-child(1) {
+      display: none;
+    }
+    .rightrow{
+        width: calc(75% - 0.5px);
+    }
+  }
