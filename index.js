@@ -11,10 +11,11 @@ currency.addEventListener('input', function() {
 });
 
 function rate_update() {
-    run(currency.value, 'USD')
+    run(currency.value, 'INR')
         .then(rate => {
-            document.getElementById('rate').innerHTML = (1/rate).toFixed(2);
-            ratep = (1/rate).toFixed(2);
+          let val = (1/rate).toFixed(4);
+            document.getElementById('rate').innerHTML = '1 INR = ' +  val + ' ' + currency.value;
+            ratep = (rate).toFixed(4);
         })
         .catch(error => {
             console.error('Error occurred:', error);
@@ -53,16 +54,26 @@ function run(from, to) {
 
 function update() {
     let value = amount.value;
-    var ourfee = 0.02*value;
-    document.getElementById('bankfees').innerHTML = '0 ' + currency.value;
-    document.getElementById('ourfee').innerHTML = ourfee + ' ' + currency.value;
-    document.getElementById('totalfee').innerHTML = ourfee + ' ' + currency.value;
-    document.getElementById('convertamount').innerHTML = (value-ourfee) + ' ' + currency.value;
+    value = value*ratep;
+    console.log(value);
+    value = value-1750;
+    let gst;
+
+    if (value < 100000) {
+      gst = Math.max(value * 0.01, 250);
+    } else if (value <= 1000000) {
+        gst = 1000 + ((value - 100000) * 0.005);
+    } else {
+        gst = Math.min(5500 + (value - 1000000) * 0.001, 60000);
+    }
+
+    value = value-gst;
+
+    document.getElementById('convertamount').innerHTML = gst + ' INR';
+    document.getElementById('rquantity').value = (value).toFixed(3);
     
-    document.getElementById('rquantity').value = (value/ratep).toFixed(3);
-    
-    console.log(amount.value + currency.value);
 }
+
 
 var recieved_quantity = document.getElementById('rquantity');
 
@@ -71,14 +82,22 @@ recieved_quantity.addEventListener('input', function() {
 });
 
 function update_rev() {
-    var r_amount = recieved_quantity.value;
+    var val = parseFloat(recieved_quantity.value);
+    console.log(val);
+    let gst = 0;
 
-    document.getElementById('convertamount').innerHTML = (r_amount*ratep) + ' ' + currency.value;
-    document.getElementById('amount').value = ((r_amount*ratep)*(100/98)).toFixed(3);
-    var ourfee = (0.02*(r_amount*ratep)*(100/98)).toFixed(3);
-    document.getElementById('bankfees').innerHTML = '0 ' + currency.value;
-    document.getElementById('ourfee').innerHTML = ourfee + ' ' + currency.value;
-    document.getElementById('totalfee').innerHTML = ourfee + ' ' + currency.value;
-    
+    if (val < 100000) {
+      gst = Math.max(val * 0.01, 250);
+    } else if (val <= 1000000) {
+        gst = 1000 + ((val - 100000) * 0.005);
+    } else {
+        gst = Math.min(5500 + (val - 1000000) * 0.001, 60000);
+    }
+    val = val+gst;
+    val = val + 1750;
+    console.log(val);
+
+    document.getElementById('convertamount').innerHTML = gst + ' INR';
+    document.getElementById('amount').value = (val/ratep).toFixed(2);
 
 }
