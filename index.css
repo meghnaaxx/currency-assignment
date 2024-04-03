@@ -110,7 +110,41 @@ select {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* Disable tap highlight */
     font-size: large;
   }
+  #country {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px; /* Adjust the width as needed */
+}
 
+/* Style the options */
+#country option {
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Style the dropdown arrow */
+#country::-ms-expand {
+    display: none;
+}
+#country::after {
+    content: '▼'; /* Unicode for down arrow */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+  .select{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 25%;
+    border: 0;
+    outline: none; /* Disable outline when focused */
+    font-size: large;
+  }
 input[type="number"] {
     width: 75%;
     border: 0;
