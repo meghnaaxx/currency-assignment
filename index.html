@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="index.css">
+        
     </head>
     <body>
         <div class="container">
@@ -25,10 +26,9 @@
                     <div class="input-box">
                         <input type="number" id="amount" placeholder="Enter a number">
                         <select id="country">
-                            <option value="INR">INR</option>
+                            <option value="USD">USD</option>
                             <option value="EUR">EUR</option>
                             <option value="GBP">GBP</option>
-                            <!-- Add more options as needed -->
                         </select>
                     </div>
                     <ul class="list">
@@ -37,24 +37,24 @@
                                 
                             </span>
                             <p class="listitemamount" id="bankfees">
-                                0 INR
+                                1500 INR
                             </p>
                             <p class="listitemlabel">
-                                Bank Transfer fees
+                                Nostro charges
                             </p>
                         </li>
                         <li class="listitem">
                             <span class="listitemlogo"></span>
                             <p class="listitemamount" id="ourfee">
-                                0 INR
+                                250 INR
                             </p>
-                            <p class="listitemlabel">Our Fee</p>
+                            <p class="listitemlabel">Service charges</p>
                         </li>
                         <li class="listitem">
                             <span class="listitemlogo">
                                 <img src="icons/minus-solid.svg"></img>
                             </span>
-                            <p class="listitemamount" id="totalfee">0 INR</p>
+                            <p class="listitemamount" id="totalfee">1750 INR</p>
                             <p class="listitemlabel">Total fees</p>
                         </li>
                         <br>
@@ -63,14 +63,13 @@
                                 <img src="icons/equals-solid.svg"></img>
                             </span>
                             <p class="listitemamount" id="convertamount">0 INR</p>
-                            <p class="listitemlabel">Total amount we'll convert</p>
+                            <p class="listitemlabel">GST</p>
                         </li>
                         <li class="listitem">
                             <span class="listitemlogo">
                                 <img src="icons/divide-solid.svg"></img>
                             </span>
-                            <p class="listitemamount" id="rate">83.350</p>
-                            <p class="listitemlabel underline">Guaranteed Rate(24 h)</p>
+                            <p class="listitemamount" id="rate">1 INR = 0.012 USD</p>
                         </li>
 
                     </ul>
@@ -79,9 +78,7 @@
                     </div>
                     <div class="input-box">
                         <input type="number" id="rquantity" placeholder="Enter a number">
-                        <select id="rcountry">
-                            <option value="USA">USD</option>
-                        </select>
+                        <div class="select"><img src="icons/india.png" style="height:24px;">INR</div>
                     </div>
                     <div class="arrivetext">Should arrive <b>by Wednesday</b></div>
                     <button class="endbutton">Get Started</button>
