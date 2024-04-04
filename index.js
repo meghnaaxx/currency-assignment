@@ -72,6 +72,7 @@ function update() {
 
     value = value+gst;
     value = value+1750;
+    value = value*1.00238;
     let x = (gst + 1750).toFixed(0);
     document.getElementById('totalfee').innerHTML = x + ' INR';
 
@@ -108,7 +109,7 @@ function update_rev() {
     } else {
         gst = Math.min(5500 + (val - 1000000) * 0.001, 60000);
     }
-    gst = gst*0.185;
+    gst = gst*0.1803;
     val = val-gst;
     val = val - 1750;
     let x = (gst + 1750).toFixed(0);
