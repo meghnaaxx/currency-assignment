@@ -56,7 +56,7 @@ function run(from, to) {
 function update() {
     let value = amount.value;
     value = value/ratep;
-    value = value+1750;
+    
     let gst;
 
     if (value < 100000) {
@@ -67,13 +67,15 @@ function update() {
         gst = Math.min(5500 + (value - 1000000) * 0.001, 60000);
     }
     gst=gst*0.18;
+    console.log(gst)
 
     value = value+gst;
+    value = value+1750;
     let x = (gst + 1750).toFixed(0);
     document.getElementById('totalfee').innerHTML = x + ' INR';
 
     document.getElementById('convertamount').innerHTML = gst.toFixed(0) + ' INR';
-    document.getElementById('rquantity').value = (value).toFixed(3);
+    document.getElementById('rquantity').value = (value).toFixed(2);
     if(value>=700000){
       document.getElementById('notice').style.display = 'block';
     } else {
@@ -108,6 +110,9 @@ function update_rev() {
     gst = gst*0.18;
     val = val-gst;
     val = val - 1750;
+    let x = (gst + 1750).toFixed(0);
+    document.getElementById('totalfee').innerHTML = x + ' INR';
+
 
     document.getElementById('convertamount').innerHTML = gst + ' INR';
     document.getElementById('amount').value = (val*ratep).toFixed(2);
