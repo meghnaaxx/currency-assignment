@@ -114,7 +114,7 @@ function update_rev() {
     document.getElementById('totalfee').innerHTML = x + ' INR';
 
 
-    document.getElementById('convertamount').innerHTML = gst + ' INR';
+    document.getElementById('convertamount').innerHTML = gst.toFixed(0) + ' INR';
     document.getElementById('amount').value = (val*ratep).toFixed(2);
 
 }
