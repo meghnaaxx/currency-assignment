@@ -66,7 +66,8 @@ function update() {
     } else {
         gst = Math.min(5500 + (value - 1000000) * 0.001, 60000);
     }
-    gst=gst*0.18;
+    console.log(gst)
+    gst=gst*0.1802;
     console.log(gst)
 
     value = value+gst;
@@ -107,7 +108,7 @@ function update_rev() {
     } else {
         gst = Math.min(5500 + (val - 1000000) * 0.001, 60000);
     }
-    gst = gst*0.18;
+    gst = gst*0.185;
     val = val-gst;
     val = val - 1750;
     let x = (gst + 1750).toFixed(0);
