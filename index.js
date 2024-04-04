@@ -74,6 +74,11 @@ function update() {
 
     document.getElementById('convertamount').innerHTML = gst.toFixed(0) + ' INR';
     document.getElementById('rquantity').value = (value).toFixed(3);
+    if(value>=700000){
+      document.getElementById('notice').style.display = 'block';
+    } else {
+      document.getElementById('notice').style.display = 'none';
+    }
     
 }
 
@@ -86,6 +91,11 @@ recieved_quantity.addEventListener('input', function() {
 
 function update_rev() {
     var val = parseFloat(recieved_quantity.value);
+    if(val>=700000){
+      document.getElementById('notice').style.display = 'block';
+    } else {
+      document.getElementById('notice').style.display = 'none';
+    }
     let gst = 0;
 
     if (val < 100000) {
