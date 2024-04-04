@@ -1,6 +1,6 @@
 var amount = document.getElementById('amount');
 var currency = document.getElementById('country');
-var ratep = 83.350;
+var ratep = 0.0118;
 
 amount.addEventListener('input', function() {
     update();
@@ -11,11 +11,11 @@ currency.addEventListener('input', function() {
 });
 
 function rate_update() {
-    run(currency.value, 'INR')
+    run('INR', currency.value)
         .then(rate => {
-          let val = (1/rate).toFixed(4);
+          let val = (rate).toFixed(5);
             document.getElementById('rate').innerHTML = '1 INR = ' +  val + ' ' + currency.value;
-            ratep = (rate).toFixed(4);
+            ratep = (rate).toFixed(5);
         })
         .catch(error => {
             console.error('Error occurred:', error);
@@ -40,8 +40,9 @@ function run(from, to) {
       })
       .then(data => {
         let valuex = document.getElementById('amount').value;
+        valuex = valuex + 1750;
         let ratepx = data.result;
-        document.getElementById('rquantity').value = (valuex*ratepx).toFixed(3);
+        document.getElementById('rquantity').value = (valuex/ratepx).toFixed(3);
         return data.result;
       })
       .catch(error => {
@@ -54,9 +55,8 @@ function run(from, to) {
 
 function update() {
     let value = amount.value;
-    value = value*ratep;
-    console.log(value);
-    value = value-1750;
+    value = value/ratep;
+    value = value+1750;
     let gst;
 
     if (value < 100000) {
@@ -66,10 +66,13 @@ function update() {
     } else {
         gst = Math.min(5500 + (value - 1000000) * 0.001, 60000);
     }
+    gst=gst*0.18;
 
-    value = value-gst;
+    value = value+gst;
+    let x = (gst + 1750).toFixed(0);
+    document.getElementById('totalfee').innerHTML = x + ' INR';
 
-    document.getElementById('convertamount').innerHTML = gst + ' INR';
+    document.getElementById('convertamount').innerHTML = gst.toFixed(0) + ' INR';
     document.getElementById('rquantity').value = (value).toFixed(3);
     
 }
@@ -83,7 +86,6 @@ recieved_quantity.addEventListener('input', function() {
 
 function update_rev() {
     var val = parseFloat(recieved_quantity.value);
-    console.log(val);
     let gst = 0;
 
     if (val < 100000) {
@@ -93,11 +95,11 @@ function update_rev() {
     } else {
         gst = Math.min(5500 + (val - 1000000) * 0.001, 60000);
     }
-    val = val+gst;
-    val = val + 1750;
-    console.log(val);
+    gst = gst*0.18;
+    val = val-gst;
+    val = val - 1750;
 
     document.getElementById('convertamount').innerHTML = gst + ' INR';
-    document.getElementById('amount').value = (val/ratep).toFixed(2);
+    document.getElementById('amount').value = (val*ratep).toFixed(2);
 
 }
