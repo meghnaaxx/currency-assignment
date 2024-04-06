@@ -93,7 +93,7 @@ body {
   }
  
   .input-box {
-    display: flex;
+    position: relative;
     border: 1px solid black;
     border-radius: 15px;
     padding: 2%;
@@ -167,13 +167,23 @@ select {
   border-radius: 5px;
   padding: 10px;
 }
+
 .row{
-  font-size: 18px;
-  margin: 5px; 
+  cursor: pointer;
+  font-size: 20px;
+  margin: 10px; 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px;
 }
+
+.row:hover{
+  border: 1px solid black;
+
+  border-radius: 10px;
+}
+
 input[type="number"] {
     width: 75%;
     border: 0;
