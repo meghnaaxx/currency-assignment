@@ -26,13 +26,11 @@
                     <div class="input-box" style="flex-direction: column;">
                         <div class="innerdiv" style="display: flex;">
                             <input type="number" id="amount" placeholder="Enter a number">
-                            <div class="select" id="selectedCurrency">USD <button id="toggleOptionsButton" onclick="toggle()">↓</button></div>
+                            <div class="select" id="selectedCurrency">USD <button id="toggleOptionsButton" onclick="toggle()" style="background-color: transparent; cursor: pointer; border: 0;">▼</button></div>
                         </div>
-                        <div class="options" id="options" style="display: none;">
+                        <div class="options" id="options" style="display:none;z-index: 10000; position: absolute; margin: 10px 0px 0px; background-color: white; width: 80%; right: 0px;">
                             <div class="row" onclick="selectOption('EUR')"><img src="icons/euro.png">EUR</div>
-                            <br>
                             <div class="row" onclick="selectOption('USD')"><img src="icons/usa.jpg">USD</div>
-                            <br>
                             <div class="row" onclick="selectOption('GBP')"><img src="icons/gbp.png">GBP</div>
 
                         </div>
