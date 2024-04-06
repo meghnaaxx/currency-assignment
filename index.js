@@ -1,21 +1,22 @@
 var amount = document.getElementById('amount');
-var currency = document.getElementById('country');
+var currency = 'USD';
 var ratep = 0.0118;
 
 amount.addEventListener('input', function() {
     update();
 });
-currency.addEventListener('input', function() {
-    rate_update()
-    update()
-});
 
 function rate_update() {
-    run('INR', currency.value)
+  run('INR', currency)
         .then(rate => {
+          console.log(rate);
           let val = (rate).toFixed(5);
-            document.getElementById('rate').innerHTML = '1 INR = ' +  val + ' ' + currency.value;
+            document.getElementById('rate').innerHTML = '1 INR = ' +  val + ' ' + currency;
             ratep = (rate).toFixed(5);
+        })
+        .then(rate=>{
+          console.log(rate);
+          update();
         })
         .catch(error => {
             console.error('Error occurred:', error);
@@ -66,14 +67,13 @@ function update() {
     } else {
         gst = Math.min(5500 + (value - 1000000) * 0.001, 60000);
     }
-    console.log(gst)
     gst=gst*0.1802;
-    console.log(gst)
-
+    
     value = value+gst;
     value = value+1750;
     value = value*1.00238;
     let x = (gst + 1750).toFixed(0);
+    console.log(value);
     document.getElementById('totalfee').innerHTML = x + ' INR';
 
     document.getElementById('convertamount').innerHTML = gst.toFixed(0) + ' INR';
@@ -119,4 +119,20 @@ function update_rev() {
     document.getElementById('convertamount').innerHTML = gst.toFixed(0) + ' INR';
     document.getElementById('amount').value = (val*ratep).toFixed(2);
 
+}
+
+function toggle() {
+  var optionsDiv = document.getElementById("options");
+  if (optionsDiv.style.display === "none") {
+      optionsDiv.style.display = "block";
+  } else {
+      optionsDiv.style.display = "none";
+  }
+}
+
+function selectOption(currency_n) { 
+  currency = currency_n;
+  rate_update();
+  document.getElementById("selectedCurrency").innerHTML = currency_n + ' <button id="toggleOptionsButton" onclick="toggle()">↓</button>';
+  document.getElementById("options").style.display = "none";
 }
