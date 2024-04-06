@@ -91,6 +91,7 @@ body {
     line-height: 20px;
     margin-top: 20px;
   }
+ 
   .input-box {
     display: flex;
     border: 1px solid black;
@@ -101,6 +102,18 @@ body {
 }
 .input-box:hover{
   border: 2px solid black;
+}
+
+.input-boxx {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 2%;
+ 
+  transition: background-color 2s ease;
+}
+.input-boxx:hover{
+border: 2px solid black;
 }
 
 select {
@@ -145,6 +158,22 @@ select {
     outline: none; /* Disable outline when focused */
     font-size: large;
   }
+.row img{
+  height: 20px;
+  width: 30px;
+}
+.options{
+  border: 2px solid lightgreen;
+  border-radius: 5px;
+  padding: 10px;
+}
+.row{
+  font-size: 18px;
+  margin: 5px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 input[type="number"] {
     width: 75%;
     border: 0;
